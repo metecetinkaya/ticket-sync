@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "TicketSync",
+    "version": "1.0",
+    "description": "TicketSync simplifies collaboration by seamlessly connecting Jira and Zendesk. Enjoy real-time bidirectional synchronization, customizable mapping, and automated workflows for efficient issue tracking and customer support. Enhance productivity, accuracy, and team collaboration with TicketSync.",
+    "browser_action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "32": "icons/32.png",
+            "64": "icons/64.png"
+        }
+    },
+    "icons": {
+        "32": "icons/32.png",
+        "64": "icons/64.png"
+    },
+    "permissions": [
+        "declarativeContent",
+        "tabs",
+        "activeTab",
+        "storage",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": ["managers/background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://winsider.atlassian.net/jira/dashboards/*"],
+            "css": ["main.css"],
+            "js": ["dist/bundle.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "module": "true"
+}
+  

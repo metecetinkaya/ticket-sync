@@ -1,0 +1,56 @@
+.ts-blocker-tasks-status-header,
+.ts-ticket-status-header {
+    width: 220px;
+}
+
+.ts-blocker-task-status > a,
+.ts-ticket-status > a {
+    color: #579DFF !important;
+}
+
+.ts-status-label:not(:empty) {
+    background: #1C2B41;
+    border: 1px solid #A6C5E229;
+    border-radius:3px;
+    color: #B6C2CF;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 99%;
+    margin: 0;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+.ts-zendesk-status-label:not(:empty) {
+    background-color: #a1bdd914;
+    color: #9fadbc;
+    border: 1px solid #A6C5E229;
+    border-radius:3px;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 99%;
+    margin: 0;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+.ts-status-blue-gray {
+    background-color: #a1bdd914 !important;
+    color: #9fadbc !important;
+}
+
+.ts-status-green, .ts-status-closed {
+    background-color: #1c3329 !important;
+    color: #7ee2b8 !important;
+}
+
+.ts-status-yellow, .ts-status-solved {
+    background-color: #1c2b41 !important;
+    color: #85b8ff !important;
+}

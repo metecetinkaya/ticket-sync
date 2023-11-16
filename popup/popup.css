@@ -1,0 +1,124 @@
+body {
+    padding: 1.2rem;
+    margin: 0;
+    background-color: white;
+    max-width: 12rem;
+    width: 12rem;
+    font-size: .7rem;
+    line-height: 1.5rem;
+    font-family: 'Lexend', sans-serif;
+}
+
+.ts-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.ts-header img {
+    height: 2rem;
+    margin-right: 0.2rem;
+}
+
+.ts-header h1 {
+    font-size: 24px;
+}
+
+.ts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ts-container-card {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 12px;
+    padding: 8px 12px;
+    background-color: #f7f8f7;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.ts-card-image {
+    height: 30px;
+    aspect-ratio: 1;
+    object-fit: contain;
+    padding: 3px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.ts-card-text {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.ts-footer p {
+    font-size: .6rem;
+    line-height: 1;
+    text-align: right;
+    margin: 1rem 0 0 0;
+}
+
+/* Switch styles */
+.ts-switch {
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.ts-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ts-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.ts-slider:before {
+    position: absolute;
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .ts-slider {
+    background-color: #FF8A65;
+}
+
+input:focus + .ts-slider {
+    box-shadow: 0 0 1px #FF8A65;
+}
+  
+input:checked + .ts-slider:before {
+    -webkit-transform: translateX(1.5rem);
+    -ms-transform: translateX(1.5rem);
+    transform: translateX(1.5rem);
+}
+
+.ts-slider.round {
+    border-radius: 2rem;
+}
+  
+.ts-slider.round:before {
+    border-radius: 50%;
+}
