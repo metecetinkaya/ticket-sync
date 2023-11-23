@@ -4,6 +4,7 @@ class ZendeskManager {
         this.CONFIG = {
             HEADER_TEXT: 'Zendesk Ticket Statuses',
         };
+
         this.CLASSES = {
             TICKET_IDS: '.customfield_16406',
             TICKET_IDS_HEADER: '.headerrow-customfield_16406',

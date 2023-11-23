@@ -1,4 +1,3 @@
-
 class JiraManager {
     constructor () {
         this.TYPE = 'jira';
