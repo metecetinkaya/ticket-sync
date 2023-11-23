@@ -3,6 +3,11 @@
     width: 220px;
 }
 
+.ts-ticket-status {
+    display: inline-grid;
+    gap: 6px;
+}
+
 .ts-blocker-task-status > a,
 .ts-ticket-status > a {
     color: #579DFF !important;
@@ -19,6 +24,7 @@
     line-height: 99%;
     margin: 0;
     padding: 2px 5px;
+    width: max-content;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase
@@ -35,6 +41,7 @@
     line-height: 99%;
     margin: 0;
     padding: 2px 5px;
+    width: max-content;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase
