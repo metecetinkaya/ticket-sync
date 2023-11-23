@@ -2,7 +2,7 @@ import JiraManager from './managers/JiraManager.js';
 import ZendeskManager from './managers/ZendeskManager.js';
 
 class Main {
-    constructor() {
+    constructor () {
         this.jiraManager = new JiraManager();
         this.zendeskManager = new ZendeskManager();
 
@@ -13,7 +13,7 @@ class Main {
         }, 5000);
     }
 
-    setEvents() {
+    setEvents () {
         chrome.runtime.onMessage.addListener(request => {
             if (request.action === 'syncZendesk') this.zendeskManager.init();
             //if (request.action === 'syncZendesk') chrome.runtime.sendMessage({ type: 'zendesk', list: ['134576', '140561'] });
