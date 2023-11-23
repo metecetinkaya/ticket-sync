@@ -9,11 +9,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             },
             redirect: 'follow'
         };
-
-        fetch(`https://useinsiderhelp.zendesk.com/api/v2/tickets/${ 134576 }`, requestOptions)
-            .then(response => response.json())
-            .then(result => console.log(result));
-
     
         fetch(`https://useinsiderhelp.zendesk.com/api/v2/tickets/show_many.json?ids=${ request.ticketIds.join(',') }`, requestOptions)
             .then(response => response.json())
@@ -23,20 +18,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 
     if (request.type === 'jira') {
-        //const requestOptions = {
-        //    method: 'GET',
-        //    headers: {
-        //        'Content-Type': 'application/json',
-        //        'Authorization': 'Basic bWV0ZWhhbi5jZXRpbmtheWFAdXNlaW5zaWRlci5jb206QVRBVFQzeEZmR0YwbEZQLWdNTmJwWEhxNmEyZm1aWVNNcVBFUzN5QUlIODFGQy1KbDV4djR3bUN2TEpPV010NlBUTWJOYUw2RFZucVdwczVYMWZJV1BKRkFSdlhURGFsYTM0MFk1d1VGMUVsS2VXU0JpdzlnTTZlSUVVTm9SMHp1WDZtOG9UaWdSc1hsTTktODc3enBHOWNwcHRIN0x0am1EajV2bTJWWTBCWTdmQ3oxUGg3NGNZPTk1NUVEMkEx'
-        //    },
-        //};
-        //
-        //fetch(`https://winsider.atlassian.net/rest/api/3/issue/${ request.taskId }`, requestOptions)
-        //    .then(response => response.json())
-        //    .then(result => sendResponse(result));
-        //
-        //return true;
-        
         const requestOptions = {
             method: 'POST',
             headers: {
