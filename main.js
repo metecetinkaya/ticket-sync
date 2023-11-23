@@ -7,8 +7,8 @@ class Main {
         this.zendeskManager = new ZendeskManager();
 
         setTimeout(() => {            
-            //this.jiraManager.init();
-            //this.zendeskManager.init();
+            this.jiraManager.init();
+            this.zendeskManager.init();
             this.setEvents();
         }, 5000);
     }
