@@ -1,14 +1,14 @@
 class JiraManager {
     constructor () {
         this.TYPE = 'jira';
+        this.CONFIG = {
+            HEADER_TEXT: 'Blocker Tasks Statuses',
+        };
+
         this.CLASSES = {
             ISSUE_KEY: '.issuekey',
             TICKET_IDS: '.customfield_16406',
             TICKET_IDS_HEADER: '.headerrow-customfield_16406',
-        };
-
-        this.CONFIG = {
-            HEADER_TEXT: 'Blocker Tasks Statuses',
         };
     }
 
