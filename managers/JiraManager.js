@@ -76,20 +76,6 @@ class JiraManager {
      * @returns {void}
      */
     createLabels (response) {
-        // TODO: will need to implement to backend
-        response = response.issues.reduce((newArray, task) => {
-            const inwardIssues = task.fields.issuelinks.filter(link => link.hasOwnProperty('inwardIssue'));
-          
-            if (inwardIssues.length) {
-                newArray.push({
-                    key: task.key,
-                    inwardIssues,
-                });
-            }
-          
-            return newArray;
-        }, []);
-
         response.forEach(task => {
             const row = document.querySelector(`[data-issue-key="${ task.key }"]`).parentNode.parentNode;
             const labels = task.inwardIssues.reduce((acc, task) => `${ acc }

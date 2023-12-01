@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "TicketSyncTest",
+    "name": "TicketSync",
     "version": "1.0",
     "description": "TicketSync simplifies collaboration connecting Jira and Zendesk in Jira dashboards.",
     "browser_action": {

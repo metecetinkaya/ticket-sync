@@ -83,14 +83,6 @@ class ZendeskManager {
      * @returns {void}
      */
     createLabels (response) {
-        // TODO: will need to implement to backend
-        response = response.tickets.map(ticket =>{
-            return {
-                id: ticket.id,
-                status: ticket.status,
-            }
-        })
-
         response.forEach(ticket => {
             const elements = document.querySelectorAll('.customfield_16406');
             const row = Array.from(elements).find(element => element.textContent.includes(ticket.id));
