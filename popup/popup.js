@@ -12,5 +12,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('jira-card').addEventListener('click', () => {
         sync('syncJira');
     });
-    
 });
