@@ -1,6 +1,32 @@
-.ts-blocker-tasks-status-header,
-.ts-ticket-status-header {
+/* Dashboard Native Elements */
+th.headerrow-summary { /* Summary */
+    width: 400px !important;
+}
+th.headerrow-customfield_16345 { /* Blocker Timer (Hours) */
+    width: 150px !important;
+}
+th.headerrow-customfield_13901 { /* Team */
+    width: 85px !important;
+}
+th.headerrow-reporter { /* Reporter */
+    width: 200px !important;
+}
+th.headerrow-customfield_16403 { /* Reporter's Team */
+    width: 260px !important;
+}
+th.headerrow-customfield_14941 { /* Blocked by This Task */
+    width: 360px !important;
+}
+
+/* ---------------------------------------------------------------- */
+
+/* Dashboard */
+.ts-blocker-tasks-status-header {
     width: 220px;
+}
+
+.ts-ticket-status-header {
+    width: 150px;
 }
 
 .ts-ticket-status {
@@ -8,16 +34,20 @@
     gap: 6px;
 }
 
-.ts-blocker-task-status > a,
+.ts-blocker-task-status > span > a,
 .ts-ticket-status > a {
-    color: #579DFF !important;
+    color: var(--ds-link, #5e6c84) !important;
+}
+
+.ts-blocker-task {
+    min-width: 87px;
 }
 
 .ts-status-label:not(:empty) {
-    background: #1C2B41;
+    background-color: var(--ds-background-neutral,#DFE1E6);
+    color: var(--ds-text,#42526E);
     border: 1px solid #A6C5E229;
     border-radius:3px;
-    color: #B6C2CF;
     display: inline-block;
     font-size: 11px;
     font-weight: bold;
@@ -25,14 +55,15 @@
     margin: 0;
     padding: 2px 5px;
     width: max-content;
+    height: max-content;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase
 }
 
 .ts-zendesk-status-label:not(:empty) {
-    background-color: #a1bdd914;
-    color: #9fadbc;
+    background-color: var(--ds-background-neutral,#DFE1E6);
+    color: var(--ds-text,#42526E);
     border: 1px solid #A6C5E229;
     border-radius:3px;
     display: inline-block;
@@ -41,23 +72,111 @@
     line-height: 99%;
     margin: 0;
     padding: 2px 5px;
+    min-width: 52px;
     width: max-content;
+    height: max-content;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase
 }
 
 .ts-status-blue-gray {
-    background-color: #a1bdd914 !important;
-    color: #9fadbc !important;
+    background-color: var(--ds-background-neutral,#DFE1E6) !important;
+    color: var(--ds-text,#42526E) !important;
 }
 
 .ts-status-green, .ts-status-closed {
-    background-color: #1c3329 !important;
-    color: #7ee2b8 !important;
+    background-color: var(--ds-background-success,#E3FCEF) !important;
+    color: var(--ds-icon-success,#006644) !important;
 }
 
 .ts-status-yellow, .ts-status-solved {
-    background-color: #1c2b41 !important;
-    color: #85b8ff !important;
+    background-color: var(--ds-background-information,#DEEBFF) !important;
+    color: var(--ds-text-information,#0747A6) !important;
+}
+
+.ts-status-open {
+    background-color: var(--ds-background-danger,#DEEBFF) !important;
+    color: var(--ds-chart-danger,#0747A6) !important;
+}
+
+/* ---------------------------------------------------------------- */
+
+/* Browse */
+.ts-wrapper {
+    margin-bottom: 0.5rem;
+}
+
+.ts-header {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    border-radius: 4px 4px 0 0;
+    background: var(--ds-background-accent-green-subtlest,#f4f5f7);
+    padding: 11px 12px;
+    height: 25px;
+    border: 1px solid var(--ds-border, #DFE1E6);
+}
+
+.ts-header-logo {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.ts-container {
+    padding: 8px 12px;
+    border: 1px solid var(--ds-border, #DFE1E6);
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+}
+
+.ts-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 8px;
+}
+
+.ts-title {
+    display: flex;
+    flex-grow: 1;
+    width: 40%;
+    min-width: 120px;
+    margin-bottom: 8px;
+    padding-right: 12px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: -0.01em;
+    color: var(--ds-text-subtle,#42526e);
+    cursor: grab;
+    box-sizing: border-box;
+}
+
+.ts-tag-wrapper {
+    width: 60%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.ts-tag-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.ts-ticket-number {
+    min-width: 54px;
+}
+
+.ts-ticket-duration {
+    display: inline-flex;
+    color: var(--ds-text, #172B4D);
+    font-size: 13px;
+    line-height: var(--ds-font-lineHeight-100, 16px);
+    padding-inline: var(--ds-space-075, 6px);
+    margin-left: 3px;
+    border-radius: var(--ds-border-radius-200, 8px);
+    background-color: var(--ds-background-neutral, #DFE1E6);
 }

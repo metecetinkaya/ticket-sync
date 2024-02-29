@@ -10,7 +10,7 @@ class JiraManager {
             TICKET_IDS: '.customfield_16406',
             TICKET_IDS_HEADER: '.headerrow-customfield_16406',
         };
-    }
+    };
 
     /**
      * @returns {void}
@@ -19,7 +19,7 @@ class JiraManager {
         this.reset();
         this.createTableElements();
         this.sendRequest(this.getTaskIds()).then(response => this.createLabels(response));
-    }
+    };
 
     /**
      * @returns {void}
@@ -29,7 +29,7 @@ class JiraManager {
             ...Array.from(document.querySelectorAll('.ts-blocker-tasks-status-header')),
             ...Array.from(document.querySelectorAll('.ts-blocker-task-status')),
         ].forEach(element => element.remove());
-    }
+    };
 
     /**
      * @returns {void}
@@ -52,7 +52,7 @@ class JiraManager {
 
             row.insertAdjacentElement('beforebegin', newElement)
         });
-    }
+    };
 
     /**
      * @param {string[]} ticketIds
@@ -62,34 +62,36 @@ class JiraManager {
         return new Promise(resolve => {
             chrome.runtime.sendMessage({ type: this.TYPE, taskIds }, resolve);
         });
-    }
+    };
 
     /**
      * @returns {Array}
      */
     getTaskIds () {
         return Array.from(document.querySelectorAll(this.CLASSES.ISSUE_KEY)).map(row => row.textContent.trim());
-    }
+    };
 
     /**
      * @param {Object[]} response 
      * @returns {void}
      */
     createLabels (response) {
+        console.log(response, 'jira');
         response.forEach(task => {
             const row = document.querySelector(`[data-issue-key="${ task.key }"]`).parentNode.parentNode;
-            const labels = task.inwardIssues.reduce((acc, task) => `${ acc }
-                <a href="https://winsider.atlassian.net/browse/${ task.inwardIssue.key }">
+            const innerHTML = task.inwardIssues.reduce((acc, task) => `${ acc }
+            <span class="ts-tag-container">
+                <a class="ts-blocker-task" href="https://winsider.atlassian.net/browse/${ task.inwardIssue.key }">
                     ${ task.inwardIssue.key }
-                    <span class="ts-status-label ts-status-${ task.inwardIssue.fields.status.statusCategory.colorName }">
-                        ${ task.inwardIssue.fields.status.name }
-                    </span>
-                </a><br/>`
-            ,'');
+                </a>
+                <span class="ts-status-label ts-status-${ task.inwardIssue.fields.status.statusCategory.colorName }">
+                    ${ task.inwardIssue.fields.status.name }
+                </span>
+            </span>`, '');
 
-            row.querySelector('.customfield_16406').previousElementSibling.innerHTML = labels;
+            row.querySelector('.customfield_16406').previousElementSibling.innerHTML = innerHTML;
         });
-    }
+    };
 };
 
 export default JiraManager;

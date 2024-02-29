@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "TicketSync",
-    "version": "1.0",
+    "version": "1.1",
     "description": "TicketSync simplifies collaboration connecting Jira and Zendesk in Jira dashboards.",
     "browser_action": {
         "default_popup": "popup/popup.html",
@@ -27,7 +27,7 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://winsider.atlassian.net/jira/dashboards/*"],
+            "matches": ["https://winsider.atlassian.net/jira/dashboards/*", "https://winsider.atlassian.net/browse/*"],
             "css": ["main.css"],
             "js": ["dist/bundle.js"],
             "run_at": "document_end"

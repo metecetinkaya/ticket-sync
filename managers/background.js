@@ -4,15 +4,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
             },
             body: JSON.stringify({
                 list: request.ticketIds,
             })
         };
-    
+
         fetch('https://optimus-insight.useinsider.com/api/public/ticket-sync/zendesk', requestOptions)
             .then(response => response.json())
-            .then(result => sendResponse(result));
+            .then(result => sendResponse(result))
+            .catch(err => console.log(err));
 
         return true;
     }
@@ -22,6 +24,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
             },
             body: JSON.stringify({
                 list: request.taskIds,
@@ -30,7 +33,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     
         fetch('https://optimus-insight.useinsider.com/api/public/ticket-sync/jira', requestOptions)
             .then(response => response.json())
-            .then(result => sendResponse(result));
+            .then(result => sendResponse(result))
+            .catch(err => console.log(err));
 
         return true;
     }

@@ -9,7 +9,7 @@ class ZendeskManager {
             TICKET_IDS: '.customfield_16406',
             TICKET_IDS_HEADER: '.headerrow-customfield_16406',
         };
-    }
+    };
 
     /**
      * @returns {void}
@@ -18,7 +18,7 @@ class ZendeskManager {
         this.reset();
         this.createTableElements();
         this.sendRequest(this.getTicketIds()).then(response => this.createLabels(response));
-    }
+    };
 
     /**
      * @returns {void}
@@ -28,7 +28,7 @@ class ZendeskManager {
             ...Array.from(document.querySelectorAll('.ts-ticket-status-header')),
             ...Array.from(document.querySelectorAll('.ts-ticket-status')),
         ].forEach(element => element.remove());
-    }
+    };
 
     /**
      * @returns {void}
@@ -51,7 +51,7 @@ class ZendeskManager {
 
             row.insertAdjacentElement('afterend', newElement)
         });
-    }
+    };
 
     /**
      * @param {string[]} ticketIds
@@ -61,7 +61,7 @@ class ZendeskManager {
         return new Promise(resolve => {
             chrome.runtime.sendMessage({ type: this.TYPE, ticketIds }, resolve);
         });
-    }
+    };
 
     /**
      * @returns {Array}
@@ -76,24 +76,27 @@ class ZendeskManager {
 
             return newArray;
         }, []);
-    }
+    };
 
     /**
      * @param {Object[]} response 
      * @returns {void}
      */
     createLabels (response) {
+        console.log(response, 'zendesk');
         response.forEach(ticket => {
             const elements = document.querySelectorAll('.customfield_16406');
             const row = Array.from(elements).find(element => element.textContent.includes(ticket.id));
             const newElement = document.createElement('span');
-            newElement.classList.add('ts-zendesk-status-label');
-            newElement.classList.add(`ts-status-${ ticket.status }`);
-            newElement.textContent = ticket.status
+            const innerHTML = `
+            <div class="ts-zendesk-status-label ts-status-${ ticket.status }">${ ticket.status }</div>
+            <div class="ts-ticket-duration">${ ticket.duration || '2d 10h' }</div>`;
 
+            newElement.classList.add('ts-tag-container');
+            newElement.innerHTML = innerHTML;
             row.nextElementSibling.appendChild(newElement);
         });
-    }
-}
+    };
+};
 
 export default ZendeskManager;
