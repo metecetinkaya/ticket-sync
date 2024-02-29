@@ -77,7 +77,7 @@ class BrowseManager {
                                 ${ ticket.id }
                             </a>
                             <div class="ts-zendesk-status-label ts-status-${ ticket.status }">${ ticket.status }</div>
-                            <div class="ts-ticket-duration">${ ticket.duration || '2d 10h' }</div>
+                            <div class="ts-ticket-duration">${ ticket.duration }</div>
                         </div>`;
                     }, '')
                     : `<div>${ this.CONFIG.NO_LINKED_TICKET_FOUNDED }</div>`

@@ -90,7 +90,7 @@ class ZendeskManager {
             const newElement = document.createElement('span');
             const innerHTML = `
             <div class="ts-zendesk-status-label ts-status-${ ticket.status }">${ ticket.status }</div>
-            <div class="ts-ticket-duration">${ ticket.duration || '2d 10h' }</div>`;
+            <div class="ts-ticket-duration">${ ticket.duration }</div>`;
 
             newElement.classList.add('ts-tag-container');
             newElement.innerHTML = innerHTML;
