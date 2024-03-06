@@ -19,8 +19,10 @@ class BrowseManager {
      * @returns {void}
      */
     init () {
-        this.reset();
-        this.sendRequest(this.getTicketIds()).then(response => this.createTicketArea(response));
+        this.sendRequest(this.getTicketIds()).then(response => {
+            this.reset();
+            this.createTicketArea(response)
+        });
     };
 
     /**
