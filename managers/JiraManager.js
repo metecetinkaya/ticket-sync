@@ -76,7 +76,6 @@ class JiraManager {
      * @returns {void}
      */
     createLabels (response) {
-        console.log(response, 'jira');
         response.forEach(task => {
             const row = document.querySelector(`[data-issue-key="${ task.key }"]`).parentNode.parentNode;
             const innerHTML = task.inwardIssues.reduce((acc, task) => `${ acc }

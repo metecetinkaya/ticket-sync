@@ -83,7 +83,6 @@ class ZendeskManager {
      * @returns {void}
      */
     createLabels (response) {
-        console.log(response, 'zendesk');
         response.forEach(ticket => {
             const elements = document.querySelectorAll('.customfield_16406');
             const row = Array.from(elements).find(element => element.textContent.includes(ticket.id));
