@@ -3,7 +3,7 @@ class BrowseManager {
         this.TYPE = 'zendesk';
         this.CONFIG = {
             HEADER_TEXT: 'TicketSync',
-            HEADER_LOGO: 'https://i.ibb.co/fHvBZf6/512.png',
+            HEADER_LOGO: 'https://i.ibb.co/kQZYjNm/32.png',
             LINKED_TICKET_STATUS: 'Linked Ticket Status',
             ZENDESK_TICKET_PREFIX: 'https://useinsiderhelp.zendesk.com/agent/tickets',
             NO_LINKED_TICKET_FOUNDED: 'No linked ticket founded',
